@@ -5,12 +5,38 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>UNIC: Neural Garment Deformation Field for Real-time Clothed Character Animation</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon_package/android-chrome-512x512.png">
+
     <link rel="stylesheet" href="css/bootstrap-4.4.1.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="fonts/avenir-next/stylesheet.css">
     <link rel="stylesheet" href="fonts/segoe-print/stylesheet.css">
+    <link rel="stylesheet" href="css/window.css">
+    <link rel="stylesheet" href="css/carousel.css">
+    <link rel="stylesheet" href="css/selection_panel.css">
     <link rel="stylesheet" href="css/main.css">
-    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon_package/android-chrome-512x512.png">
+    <!-- <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet"> -->
+    <link rel="stylesheet" href="css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="css/bulma-slider.min.css">
+    <!-- <link rel="stylesheet" href="css/bulma.min.css"> -->
+    <link rel="stylesheet" href="css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="css/index.css">
+
+    <script src="js/window.js"></script>
+    <script src="js/carousel.js"></script>
+    <script src="js/selection_panel.js"></script>
+    <script src="js/generation.js"></script>
+    <script src="js/editing.js"></script>
+    <script src="js/application.js"></script>
+    <script src="js/main.js"></script>
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="js/fontawesome.all.min.js"></script>
+    <script src="js/bulma-carousel.min.js"></script>
+    <script src="js/bulma-slider.min.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/video_comparison.js" defer></script>
   </head>
 
   <!-- cover -->
@@ -42,8 +68,8 @@
             </p>
             <div class="row justify-content-center">
               <div class="column">
-                <p class="mb-5"><a class="btn btn-large btn-light" href="https://arxiv.org/abs/2312.08869" role="button"  target="_blank">
-                  <i class="fa fa-file"></i> Paper </a> </p>
+                <p class="mb-5"><a class="btn btn-large btn-light" href="" role="button"  target="_blank">
+                  <i class="fa fa-file"></i> Paper(coming soon) </a> </p>
               </div>
               <div class="column">
                 <p class="mb-5"><a class="btn btn-large btn-light" href="" role="button" target="_blank">
@@ -68,7 +94,7 @@
         <div class="col-12 text-center">
           <div class="row" style="margin-bottom:5px">
             <div class="col" style="text-align:center">
-              <img src="images/teaser.png" width="80%">
+              <img src="images/teaser.png" width="90%">
             </div>
           </div>
           <div id="abstract" class="x-gradient-block">
@@ -101,35 +127,85 @@
       <div class="row">
         <div class="col-12 text-center">
           <div class="x-section-title"><div class="x-gradient-font">Results</div></div>
-            <video width="80%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
-                <source src="video/comparison_skateboard.mp4" type="video/mp4">
-            </video>
-            <video width="80%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
-              <source src="video/comparison_baseball.mp4" type="video/mp4">
-            </video>
-            <video width="80%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
-              <source src="video/comparison_dumbbell.mp4" type="video/mp4">
-            </video>
-            <video width="80%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
-              <source src="video/comparison_tennis.mp4" type="video/mp4">
-            </video>
-            <video width="80%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
-              <source src="video/comparison_broom.mp4" type="video/mp4">
-            </video>
-            <video width="80%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
-              <source src="video/comparison_chair.mp4" type="video/mp4">
-            </video>
-            <video width="80%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
-              <source src="video/comparison_pan.mp4" type="video/mp4">
-            </video>
-            <video width="80%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
-              <source src="video/comparison_kettlebell.mp4" type="video/mp4">
-            </video>
+            <div id="results-carousel" class="carousel results-carousel">
+              <div class="item item-steve video-grid1">
+                <video poster="" id="steve gt_rgb" autoplay muted loop playsinline height="100%">
+                  <source src="video/tshirt_result.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="item item-steve video-grid1">
+                <video poster="" id="steve gt_rgb" autoplay muted loop playsinline height="100%">
+                  <source src="video/jk_result.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="item item-steve video-grid1">
+                <video poster="" id="steve gt_rgb" autoplay muted loop playsinline height="100%">
+                  <source src="video/princess_result.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="item item-steve video-grid1">
+                <video poster="" id="steve gt_rgb" autoplay muted loop playsinline height="100%">
+                  <source src="video/hanfu_result.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+        </div>
+        <br>
+        <p class="text-left">
+          Given garments of different topology complexity and geometry density, UNIC achieves comparable simulation quality against to the "gold standard".
+        </p>
+      </div>
+  </section>
+
+  <!-- comparison -->
+  <section class="hero">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+          <div class="x-section-title"><div class="x-gradient-font">Qualitative Comparisons</div></div>
+            <div id="results-carousel" class="carousel results-carousel">
+              <div class="item item-steve video-grid1">
+                <video poster="" id="steve gt_rgb" autoplay muted loop playsinline height="100%">
+                  <source src="video/tshirt_comp.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="item item-steve video-grid1">
+                <video poster="" id="steve gt_rgb" autoplay muted loop playsinline height="100%">
+                  <source src="video/jk_comp.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="item item-steve video-grid1">
+                <video poster="" id="steve gt_rgb" autoplay muted loop playsinline height="100%">
+                  <source src="video/princess_comp.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="item item-steve video-grid1">
+                <video poster="" id="steve gt_rgb" autoplay muted loop playsinline height="100%">
+                  <source src="video/hanfu_comp.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
         </div>
       </div>
       <br>
       <p class="text-left">
-        I'm-HOI performs consistently better than baselines on multiple datasets, especially on IMHD<sup>2</sup> which is characterized by fast interaction motions.
+        We present input garment geometries and simulation results of each method. Note that we select garment samples that are closest to our dataset within each method's data domain to fairly evaluate the simulation quality.
+      </p>
+    </div>
+  </section>
+
+  <!-- Runtime Cost Comparisons -->
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+          <div class="x-section-title"><div class="x-gradient-font">Runtime Cost Comparisons</div></div>
+          <img src="images/runtime.png" width="90%">
+        </div>
+      </div>
+      <br>
+      <p class="text-left">
+        We test both learning-based methods and physical simulation method on all four garment styles in our dataset, ranging from simple t-shirt to complex tulle skirt. In our experiment, UNIC consistently outperforms all the other approaches including GPU-accelerated professional software (Marvelous Designer 2009) in efficiency. The runtime cost is measured in fps on a single NVIDIA RTX 3090 GPU.
       </p>
     </div>
   </section>
