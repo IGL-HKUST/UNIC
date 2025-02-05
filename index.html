@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>UNIC: Neural Garment Deformation Field for Real-time Clothed Character Animation</title>
+    <link rel="stylesheet" href="css/bootstrap-4.4.1.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="fonts/avenir-next/stylesheet.css">
+    <link rel="stylesheet" href="fonts/segoe-print/stylesheet.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon_package/android-chrome-512x512.png">
+  </head>
+
+  <!-- cover -->
+  <section>
+    <div class="jumbotron text-center mt-0">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <h2><b><span class="x-gradient-font">UNIC</span>: Neural Garment Deformation Field<br>for Real-time Clothed Character Animation</b></h2>
+            <h6>
+              <a href="https://afterjourney00.github.io/" target="_blank">Chengfeng Zhao</a><sup>1</sup>,
+              <a href="https://github.com/jumbo-q" target="_blank">Junbo Qi</a><sup>2</sup>,
+              <a href="https://frank-zy-dou.github.io/" target="_blank">Zhiyang Dou</a><sup>3</sup>,
+              <a href="https://www.cs.cmu.edu/~minchenl/" target="_blank">Minchen Li</a><sup>4</sup>,
+              <a href="https://liuziwei7.github.io/" target="_blank">Ziwei Liu</a><sup>5</sup>,
+              <a href="https://engineering.tamu.edu/cse/profiles/Wang-Wenping.html" target="_blank">Wenping Wang</a><sup>6</sup>,
+              <a href="https://liuyuan-pal.github.io/" target="_blank">Yuan Liu</a><sup>1,5,&dagger;</sup>
+            </h6>
+            <p style="text-align: center">
+              <sup>1</sup>The Hong Kong University of Science and Technology &nbsp;&nbsp;
+              <sup>2</sup>Waseda University &nbsp;&nbsp;
+              <sup>3</sup>The University of Hong Kong &nbsp;&nbsp;
+              <br>
+              <sup>4</sup>Carnegie Mellon University &nbsp;&nbsp;
+              <sup>5</sup>Nanyang Technological University &nbsp;&nbsp;
+              <sup>6</sup>Texas A&M University
+              <br>
+              <i><sup>&dagger;</sup>Corresponding author</i>
+            </p>
+            <div class="row justify-content-center">
+              <div class="column">
+                <p class="mb-5"><a class="btn btn-large btn-light" href="https://arxiv.org/abs/2312.08869" role="button"  target="_blank">
+                  <i class="fa fa-file"></i> Paper </a> </p>
+              </div>
+              <div class="column">
+                <p class="mb-5"><a class="btn btn-large btn-light" href="" role="button" target="_blank">
+                  <i class="fa fa-youtube"></i> Video(coming soon) </a> </p>
+              </div>
+              <div class="column">
+                <p class="mb-5"><a class="btn btn-large btn-light" href="https://github.com/IGL-HKUST/UNIC" role="button"  target="_blank">
+                  <i class="fa fa-github"></i> Code & Data </a> </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- abstract -->
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+          <div class="row" style="margin-bottom:5px">
+            <div class="col" style="text-align:center">
+              <img src="images/teaser.png" width="80%">
+            </div>
+          </div>
+          <div id="abstract" class="x-gradient-block">
+            Simulating physically realistic garment deformations is an essential task for immersive content in computer graphics, which is often achieved by physics simulation methods. However, these methods are typically time-consuming, computationally demanding, and require costly hardware, which is not suitable for real-time applications. Recent learning-based methods tried to resolve this problem by training graph neural networks to learn the garment deformation on vertices, which however fails to capture the intricate deformation of complex garment meshes with complex topologies. In this paper, we introduce a novel neural deformation field-based method, named UNIC, to animate the garments of an avatar in real time given the motion sequences. Our key idea is to learn the instance-specific neural deformation field to animate the garment meshes. Such an instance-specific learning scheme does not require UNIC to generalize to new garments but only new motion sequences, which greatly reduces the difficulty in training and improves the deformation quality. Moreover, neural deformation fields map the 3D points to their deformation offsets, which not only avoid handling topologies of the complex garments but also inject a natural smoothness constraint in the deformation learning. Extensive experiments have been conducted on various kinds of garment meshes to demonstrate the effectiveness and efficiency of UNIC over baseline methods.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- pipeline -->
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+          <div class="x-section-title"><div class="x-gradient-font">Pipeline</div></div>
+          <img src="images/pipeline.png" width="90%">
+        </div>
+      </div>
+      <br>
+      <p class="text-left">
+        UNIC learns an instance-specific neural deformation field that deforms arbitrarily complex garments to follow unseen character poses in real time. We first encode the character poses of two consecutive frames into a compact latent space. Then, we categorically sample a latent vector from the learned space and concatenate it with garment vertex coordinates. After that, we feed the concatenation into an MLP-based deformation decoder to predict deformation offsets for all vertices. Finally, post-process intersection handling is applied to avoid the intersection between the avatar mesh and the deformed garment mesh.
+      </p>
+    </div>
+  </section>
+
+  <!-- results -->
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+          <div class="x-section-title"><div class="x-gradient-font">Results</div></div>
+            <video width="80%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                <source src="video/comparison_skateboard.mp4" type="video/mp4">
+            </video>
+            <video width="80%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+              <source src="video/comparison_baseball.mp4" type="video/mp4">
+            </video>
+            <video width="80%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+              <source src="video/comparison_dumbbell.mp4" type="video/mp4">
+            </video>
+            <video width="80%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+              <source src="video/comparison_tennis.mp4" type="video/mp4">
+            </video>
+            <video width="80%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+              <source src="video/comparison_broom.mp4" type="video/mp4">
+            </video>
+            <video width="80%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+              <source src="video/comparison_chair.mp4" type="video/mp4">
+            </video>
+            <video width="80%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+              <source src="video/comparison_pan.mp4" type="video/mp4">
+            </video>
+            <video width="80%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+              <source src="video/comparison_kettlebell.mp4" type="video/mp4">
+            </video>
+        </div>
+      </div>
+      <br>
+      <p class="text-left">
+        I'm-HOI performs consistently better than baselines on multiple datasets, especially on IMHD<sup>2</sup> which is characterized by fast interaction motions.
+      </p>
+    </div>
+  </section>
+
+  <!-- citation -->
+  <section>
+  <div class="container">
+    <div class="row ">
+      <div class="col-12">
+        <div class="x-section-title"><div class="x-gradient-font">Citation</div></div>
+        <p class="bibtex x-gradient-block">
+@InProceedings{zhao2025unic,
+  title   = {UNIC: Neural Garment Deformation Field for Real-time Clothed Character Animation},
+  author  = {Zhao, Chengfeng and Qi, Junbo and Dou, Zhiyang and Li, Minchen and Liu, Yuan},
+  journal = {arXiv preprint arXiv:},
+  year    = {2025}
+}
+        </p>
+      </div>
+    </div>
+  </div>
+  </section>
+
+  <!-- bottom bar -->
+  <section>
+  <div id="bottombar">
+    <div><b>UNIC: Neural Garment Deformation Field for Real-time Clothed Character Animation</b></div>
+    <div>Thanks to <a href="https://lioryariv.github.io/" target="_blank">Lior Yariv</a> and <a href="https://jeffreyxiang.github.io/" target="_blank">Jianfeng Xiang</a> for the website template</div>
+  </div>
+  </section>
+
+</html>
