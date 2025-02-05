@@ -1,0 +1,10 @@
+scipy
+scikit-learn
+omegaconf
+git+https://github.com/mattloper/chumpy
+wandb
+matplotlib
+opencv-python
+smplx==0.1.28
+aitviewer
+onnx
