@@ -6,18 +6,20 @@
   Yulou Liu<sup>1</sup>,
   <a href="https://frank-zy-dou.github.io/" target="_blank">Zhiyang Dou</a><sup>3</sup>,
   <a href="https://www.cs.cmu.edu/~minchenl/" target="_blank">Minchen Li</a><sup>4</sup>,
-  <a href="https://liuziwei7.github.io/" target="_blank">Ziwei Liu</a><sup>5</sup>,
-  <a href="https://engineering.tamu.edu/cse/profiles/Wang-Wenping.html" target="_blank">Wenping Wang</a><sup>6</sup>,
-  <a href="https://liuyuan-pal.github.io/" target="_blank">Yuan Liu</a><sup>1,5,&dagger;</sup>
+  <br>
+  <a href="https://hku-cg.github.io/people/" target="_blank">Taku Komura</a><sup>5</sup>,
+  <a href="https://liuziwei7.github.io/" target="_blank">Ziwei Liu</a><sup>6</sup>,
+  <a href="https://engineering.tamu.edu/cse/profiles/Wang-Wenping.html" target="_blank">Wenping Wang</a><sup>7</sup>,
+  <a href="https://liuyuan-pal.github.io/" target="_blank">Yuan Liu</a><sup>1,&dagger;</sup>
 </p>
 <p align="center">
-  <sup>1</sup>The Hong Kong University of Science and Technology &nbsp;&nbsp;
-  <sup>2</sup>Waseda University &nbsp;&nbsp;
-  <sup>3</sup>The University of Hong Kong &nbsp;&nbsp;
-  <br>
-  <sup>4</sup>Carnegie Mellon University &nbsp;&nbsp;
-  <sup>5</sup>Nanyang Technological University &nbsp;&nbsp;
-  <sup>6</sup>Texas A&M University
+  <sup>1</sup>HKUST &nbsp;&nbsp;
+  <sup>2</sup>Waseda &nbsp;&nbsp;
+  <sup>3</sup>MIT &nbsp;&nbsp;
+  <sup>4</sup>CMU &nbsp;&nbsp;
+  <sup>5</sup>HKU &nbsp;&nbsp;
+  <sup>6</sup>NTU &nbsp;&nbsp;
+  <sup>7</sup>TAMU
   <br>
   <i><sup>&dagger;</sup>Corresponding author</i>
 </p>
