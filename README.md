@@ -22,8 +22,8 @@
   <i><sup>&dagger;</sup>Corresponding author</i>
 </p>
 <p align="center">
-  <a href="https://arxiv.org/abs/2312.08869"><img src='https://img.shields.io/badge/arXiv-Paper-red?logo=arxiv&logoColor=white' alt='arXiv'></a>
-  <a href='https://afterjourney00.github.io/UNIC/'><img src='https://img.shields.io/badge/Project_Page-Website-green?logo=googlechrome&logoColor=white' alt='Project Page'></a>
+  <a href="https://arxiv.org/abs/"><img src='https://img.shields.io/badge/arXiv-Paper-red?logo=arxiv&logoColor=white' alt='arXiv'></a>
+  <a href='https://igl-hkust.github.io/UNIC/'><img src='https://img.shields.io/badge/Project_Page-Website-green?logo=googlechrome&logoColor=white' alt='Project Page'></a>
 </p>
 
 <div align="center">
