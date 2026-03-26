@@ -1,0 +1,82 @@
+EXP_NAME: narph-dress-with-intersection-handling # Experiment names
+
+TRAIN:
+  END_EPOCH: 400 # End epoch
+  BATCH_SIZE: 1 # Size of batches
+  SHUFFLE: True # Whether to shuffle the data
+  NUM_WORKERS: 0 # Number of workers
+  DROP_LAST: True # Whether to drop the last batch
+  PERSISTENT_WORKERS: False # Whether to use persistent workers
+
+  RESUME: ''
+  RESUME_OPTIMIZER: False
+  RESUME_SCHEDULER: False
+
+  CHECKPOINT_SAVE: 'checkpoints/'
+  SAVE_PER: 20
+
+  OPTIM:
+    target: AdamW
+    params:
+      lr: 1e-4
+      weight_decay: 1e-4
+
+TEST:
+  CHECKPOINTS: checkpoints/narph-dress-with-intersection-handling-2024-12-01-07-43-40/epoch60.pth
+  START_CLIP: 0
+  END_CLIP: 1
+  CHUNK_SIZE: 5
+
+DATASET:
+  target: narph.data.dataloader.NarphDataset
+  STYLE: clo_official_dress
+  SEQ_LEN: 2
+  MIN_LEN: 2
+  NUM_JOINT: 86  # ue: 86, mixamo: 78
+  NUM_VERTEX: 757757
+
+  training_set:
+    - sequence_01
+    - sequence_02
+
+  testing_set:
+    - sequence_03
+
+LOSS:
+  TYPE: l2
+  LAMBDA_GEOMETRY: 10000.0
+  LAMBDA_NORMAL: 1.0
+
+MODEL:
+  target: narph.models.narph.Narph
+  params:
+    encoder_params:
+      character_dim: ${eval:${DATASET.NUM_JOINT} * 12 + 7}
+      garment_dim: ${eval:${DATASET.NUM_VERTEX} * 3}
+      hidden_dim: 4096
+      output_dim: ${eval:${DATASET.NUM_VERTEX} * 7}
+      codebook_channel: 128
+      codebook_dim: 8
+      dropout: 0.25
+    decoder_params:
+      n_layers: 8
+      input_dim: ${eval:${MODEL.params.encoder_params.codebook_channel} + 3}
+      hidden_dim:
+        - 256
+        - 256
+      output_dim:
+        - 3
+        - 4
+      skips:
+        - 5
+  intersection:
+    top_k: 1
+    buffer: 0.005
+    handle_in_train: False
+    handle_in_test: False
+
+LOGGER:
+  VAL_EVERY_STEPS: 1
+  WANDB:
+    params:
+      project: narph

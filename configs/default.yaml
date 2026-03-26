@@ -1,0 +1,45 @@
+SEED_VALUE: 1234
+DEBUG: None
+FULL_CONFIG: False
+
+TRAIN:
+  SPLIT: "train"
+
+  SHUFFLE: True
+  NUM_WORKERS: 0
+  DROP_LAST: True
+  PERSISTENT_WORKERS: False
+
+  OPTIM:
+    target: AdamW
+    params:
+      lr: 1e-4
+      weight_decay: 1e-4
+      
+  LR_SCHEDULER:
+    target: CosineAnnealingLR
+    params:
+      T_max: ${eval:${LOGGER.VAL_EVERY_STEPS} * 100}
+      eta_min: 1e-6
+
+  CHECKPOINT_SAVE: checkpoints/
+  SAVE_PER: 20
+
+TEST:
+  SPLIT: "test"
+
+MODEL:
+  target: unic.models.unic.UNIC
+
+LOSS:
+  TYPE: l2
+
+DATASET:
+  target: unic.data.dataloader.UnicDataset
+  MIN_LEN: 2
+
+LOGGER:
+  WANDB:
+    params:
+      entity: zhaochf-afterjourney
+      offline: False

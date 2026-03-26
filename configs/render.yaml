@@ -1,0 +1,25 @@
+NAME: '___render_do_not_need_name__' # Experiment name
+ACCELERATOR: 'gpu' # Devices optioncal: “cpu”, “gpu”, “tpu”, “ipu”, “hpu”, “mps, “auto”
+DEVICE: [0] # Index of gpus eg. [0] or [0,1,2,3]
+
+RENDER:
+  FOLDER: '___no_need__'
+  INPUT_MODE: 'npy'
+  DIR: ''
+  NPY: '___no_need__'
+  DENOISING: True
+  OLDRENDER: True
+  # ["ultra", "high", "med", "low"]
+  # RES: 'high'
+  RES: 'low'
+  DOWNSAMPLE: False
+  FPS: 60
+  CANONICALIZE: True
+  EXACT_FRAME: 0.5
+  NUM: 8
+  MODE: '___no_need__' #sequence frame video
+  VID_EXT: mp4
+  ALWAYS_ON_FLOOR: True
+  GT: false
+  START: 0
+  END: -1

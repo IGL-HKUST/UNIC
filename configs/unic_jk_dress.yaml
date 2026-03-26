@@ -1,0 +1,73 @@
+EXP_NAME: unic_jk_smpl
+
+TRAIN:
+  END_EPOCH: 400
+  BATCH_SIZE: 2
+
+  RESUME: False
+  RESUME_OPTIMIZER: False
+  RESUME_SCHEDULER: False
+  RESUME_MILESTONE: ''
+
+TEST:
+  CHECKPOINTS: checkpoints/unic_jk_dress.pth
+  CONVERT_ONNX: False
+  START_CLIP: 0
+  END_CLIP: -1
+  CHUNK_SIZE: 20
+  RECORD_TIME: False
+  SAVE_OBJS: True
+  SAVE_WITH_TRANSL: False
+
+DATASET:
+  STYLE: jk_dress_2
+  SEQ_LEN: 20
+  MIN_LEN: 2
+  NUM_JOINT: 24
+  NUM_CHARACTER_VERTEX: 6890
+  NUM_VERTEX: 34907
+
+  training_set:
+    - sequence_01
+    - sequence_02
+    - sequence_03
+    - sequence_04
+  testing_set:
+    - sequence_05
+    - sequence_06
+
+LOSS:
+  TYPE: l2
+  LAMBDA_GEOMETRY: 10000.0
+  LAMBDA_NORMAL: 1.0
+
+MODEL:
+  params:
+    encoder_params:
+      character_dim: ${eval:${DATASET.NUM_JOINT} * 12 + 7}
+      garment_dim: ${eval:${DATASET.NUM_VERTEX} * 3}
+      hidden_dim: 4096
+      codebook_channel: 128
+      codebook_dim: 8
+      dropout: 0.25
+      categorical: True
+    decoder_params:
+      n_layers: 8
+      input_dim: ${eval:${MODEL.params.encoder_params.codebook_channel} + 3}
+      hidden_dim:
+        - 256
+        - 256
+      output_dim: 3
+      skips:
+        - 5
+  intersection:
+    top_k: 1
+    buffer: 0.005
+    handle_in_train_after: 1000000
+    handle_in_test: True
+
+LOGGER:
+  VAL_EVERY_STEPS: 1
+  WANDB:
+    params:
+      project: unic

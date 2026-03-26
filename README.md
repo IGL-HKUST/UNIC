@@ -3,6 +3,7 @@
 <p align="center">
   <a href="https://afterjourney00.github.io/" target="_blank">Chengfeng Zhao</a><sup>1</sup>,
   <a href="https://github.com/jumbo-q" target="_blank">Junbo Qi</a><sup>2</sup>,
+  Yulou Liu<sup>1</sup>,
   <a href="https://frank-zy-dou.github.io/" target="_blank">Zhiyang Dou</a><sup>3</sup>,
   <a href="https://www.cs.cmu.edu/~minchenl/" target="_blank">Minchen Li</a><sup>4</sup>,
   <a href="https://liuziwei7.github.io/" target="_blank">Ziwei Liu</a><sup>5</sup>,
@@ -21,8 +22,8 @@
   <i><sup>&dagger;</sup>Corresponding author</i>
 </p>
 <p align="center">
-  <a href="https://github.com/IGL-HKUST/UNIC"><img src='https://img.shields.io/badge/arXiv-Paper-red?logo=arxiv&logoColor=white' alt='arXiv'></a>
-  <a href='https://github.com/IGL-HKUST/UNIC'><img src='https://img.shields.io/badge/Project_Page-Website-green?logo=googlechrome&logoColor=white' alt='Project Page'></a>
+  <a href="https://arxiv.org/abs/2312.08869"><img src='https://img.shields.io/badge/arXiv-Paper-red?logo=arxiv&logoColor=white' alt='arXiv'></a>
+  <a href='https://afterjourney00.github.io/UNIC/'><img src='https://img.shields.io/badge/Project_Page-Website-green?logo=googlechrome&logoColor=white' alt='Project Page'></a>
 </p>
 
 <div align="center">
@@ -51,7 +52,7 @@ make && make install
 cd ..
 ```
 
-<!-- ### 2. Run Demo
+### 2. Run Demo
 
 ```bash
 python -m test --cfg configs/config_train_unic_jk.yaml
@@ -141,12 +142,7 @@ python -m train --cfg configs/unic_jk_dress.yaml --nodebug
 ```
 Checkpoints will be saved in `checkpoints/` folder. In our experiment, we choose `epoch300.pth` for all the comparisons, evaluations and presentations.
 
-## 🏄‍♂️ Contributors
-
-- Chengfeng Zhao - [AfterJourney00](https://github.com/AfterJourney00)
-- Junbo Qi - [jumbo-q](https://github.com/jumbo-q)
-
-## 📖 Citation
+<!-- ## 📖 Citation
 If you find our code or paper helps, please consider citing:
 ```bibtex
 @article{zhao2025unic,
